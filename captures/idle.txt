@@ -1,0 +1,10 @@
+   1.501s board->module status report sn=19 [status]
+                        00 00 00 22 00 00 00 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 00 00 01
+   1.711s module->board status report ack sn=19
+   8.674s module->board WiFi status sn=1A
+                        00 00
+   8.715s board->module WiFi status ack sn=1A
+  13.054s board->module status report sn=1A [status]
+                        00 00 00 26 00 00 00 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 00 00 01
+                        CHANGES: byte 3: 22->26
+  13.311s module->board status report ack sn=1A

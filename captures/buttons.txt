@@ -1,0 +1,123 @@
+   7.466s board->module status report sn=65 [status]
+                        00 00 00 02 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+   7.585s module->board status report ack sn=65
+   8.946s module->board WiFi status sn=66
+                        00 00
+   8.963s board->module WiFi status ack sn=66
+  18.947s module->board WiFi status sn=67
+                        00 00
+  18.969s board->module WiFi status ack sn=67
+  28.948s module->board WiFi status sn=68
+                        00 00
+  28.975s board->module WiFi status ack sn=68
+  30.552s board->module status report sn=66 [status]
+                        00 00 00 06 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 3: 02->06
+  30.666s module->board status report ack sn=66
+  36.315s board->module status report sn=67 [status]
+                        00 00 00 0C 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 3: 06->0C
+  36.427s module->board status report ack sn=67
+  38.948s module->board WiFi status sn=68
+                        00 00
+  38.963s board->module WiFi status ack sn=68
+  40.773s board->module status report sn=68 [status]
+                        00 01 00 0C 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 1: 00->01
+  40.867s module->board status report ack sn=68
+  42.102s board->module status report sn=69 [status]
+                        00 01 00 22 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 3: 0C->22
+  42.227s module->board status report ack sn=69
+  47.865s board->module status report sn=6A [status]
+                        00 01 00 2A 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 3: 22->2A
+  47.987s module->board status report ack sn=6A
+  48.949s module->board WiFi status sn=6B
+                        00 00
+  48.977s board->module WiFi status ack sn=6B
+  53.645s board->module status report sn=6B [status]
+                        00 01 00 2C 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 3: 2A->2C
+  53.748s module->board status report ack sn=6B
+  58.949s module->board heartbeat sn=6C
+  58.964s board->module heartbeat ack sn=6C
+  59.408s board->module status report sn=6C [status]
+                        00 01 00 30 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 3: 2C->30
+  59.508s module->board status report ack sn=6C
+  65.187s board->module status report sn=6D [status]
+                        00 01 00 2A 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 3: 30->2A
+  65.308s module->board status report ack sn=6D
+  68.950s module->board WiFi status sn=6E
+                        00 00
+  68.969s board->module WiFi status ack sn=6E
+  70.949s board->module status report sn=6E [status]
+                        00 01 00 12 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 3: 2A->12
+  71.069s module->board status report ack sn=6E
+  72.043s board->module status report sn=6F [status]
+                        10 01 00 12 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 0: 00->10
+  72.149s module->board status report ack sn=6F
+  76.728s board->module status report sn=70 [status]
+                        10 01 00 0C 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 3: 12->0C
+  76.829s module->board status report ack sn=70
+  78.951s module->board WiFi status sn=71
+                        00 00
+  78.974s board->module WiFi status ack sn=71
+  86.618s board->module status report sn=71 [status]
+                        00 01 00 0C 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 0: 10->00
+  86.710s module->board status report ack sn=71
+  88.270s board->module status report sn=72 [status]
+                        00 01 00 06 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 3: 0C->06
+  88.390s module->board status report ack sn=72
+  88.951s module->board WiFi status sn=73
+                        00 00
+  88.978s board->module WiFi status ack sn=73
+  94.032s board->module status report sn=73 [status]
+                        00 01 00 0A 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 3: 06->0A
+  94.150s module->board status report ack sn=73
+  98.952s module->board WiFi status sn=74
+                        00 00
+  98.965s board->module WiFi status ack sn=74
+ 108.952s module->board WiFi status sn=75
+                        00 00
+ 108.973s board->module WiFi status ack sn=75
+ 111.356s board->module status report sn=74 [status]
+                        00 01 00 1A 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 3: 0A->1A
+ 111.471s module->board status report ack sn=74
+ 117.119s board->module status report sn=75 [status]
+                        00 01 00 20 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 3: 1A->20
+ 117.232s module->board status report ack sn=75
+ 118.953s module->board WiFi status sn=76
+                        00 00
+ 118.979s board->module WiFi status ack sn=76
+ 128.954s module->board WiFi status sn=77
+                        00 00
+ 128.966s board->module WiFi status ack sn=77
+ 134.444s board->module status report sn=76 [status]
+                        00 01 00 30 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 3: 20->30
+ 134.566s module->board status report ack sn=76
+ 139.007s module->board WiFi status sn=77
+                        00 00
+ 139.031s board->module WiFi status ack sn=77
+ 140.205s board->module status report sn=77 [status]
+                        00 01 00 1E 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 3: 30->1E
+ 140.326s module->board status report ack sn=77
+ 145.986s board->module status report sn=78 [status]
+                        00 01 00 1A 00 02 01 00 00 03 B3 00 00 01 45 00 00 00 6F 00 00 01 45 00 00 00 00 00 00 00 00 02 00 01
+                        CHANGES: byte 3: 1E->1A
+ 146.086s module->board status report ack sn=78
+ 149.008s module->board WiFi status sn=79
+                        00 00
+ 149.020s board->module WiFi status ack sn=79
