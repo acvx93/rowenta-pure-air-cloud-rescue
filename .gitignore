@@ -1,0 +1,11 @@
+# Build output
+.pio/
+.vscode/
+__pycache__/
+.pytest_cache/
+.venv/
+*.bin
+
+# Your own OTA password (copy the *.example.* files, see firmware/README.md)
+firmware/include/ota_password.h
+firmware/include/ota_password.ini
