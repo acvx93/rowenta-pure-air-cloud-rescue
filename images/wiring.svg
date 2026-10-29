@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="900" height="420" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15">
+  <rect width="900" height="420" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="19" font-weight="600" fill="#1d2330">Purifier CN6 → level shifter → ESP32-S3</text>
+
+  <!-- CN6 -->
+  <rect x="30" y="60" width="170" height="320" rx="10" fill="#fde2e2" stroke="#c0392b" stroke-width="2"/>
+  <text x="115" y="85" text-anchor="middle" font-weight="600" fill="#1d2330">CN6 (red header)</text>
+  <text x="115" y="103" text-anchor="middle" font-size="12" fill="#555">main board, 5 V logic</text>
+  <g fill="#1d2330">
+    <text x="50" y="140">GND</text>
+    <text x="50" y="190">TXD (board out)</text>
+    <text x="50" y="240">RXD (board in)</text>
+    <text x="50" y="290">WIFI-SW</text>
+    <text x="50" y="340">+5V</text>
+  </g>
+  <text x="115" y="305" text-anchor="middle" font-size="12" fill="#888">not connected</text>
+
+  <!-- Level shifter -->
+  <rect x="340" y="60" width="220" height="320" rx="10" fill="#dfe8fb" stroke="#2c5aa0" stroke-width="2"/>
+  <text x="450" y="85" text-anchor="middle" font-weight="600" fill="#1d2330">BSS138 level shifter</text>
+  <g fill="#1d2330">
+    <text x="355" y="140">GND</text><text x="545" y="140" text-anchor="end">GND</text>
+    <text x="355" y="190">HV2</text><text x="545" y="190" text-anchor="end">LV2</text>
+    <text x="355" y="240">HV1</text><text x="545" y="240" text-anchor="end">LV1</text>
+    <text x="355" y="340">HV</text><text x="545" y="340" text-anchor="end">LV</text>
+  </g>
+  <text x="450" y="290" text-anchor="middle" font-size="12" fill="#555">5 V side ⟷ 3.3 V side</text>
+
+  <!-- ESP32 -->
+  <rect x="700" y="60" width="170" height="320" rx="10" fill="#e3f4e5" stroke="#2e7d32" stroke-width="2"/>
+  <text x="785" y="85" text-anchor="middle" font-weight="600" fill="#1d2330">ESP32-S3</text>
+  <g fill="#1d2330">
+    <text x="720" y="140">GND</text>
+    <text x="720" y="190">GPIO18 (RX)</text>
+    <text x="720" y="240">GPIO17 (TX)</text>
+    <text x="720" y="340">3V3</text>
+    <text x="720" y="375">5Vin</text>
+  </g>
+
+  <!-- Wires -->
+  <g stroke-width="3" fill="none">
+    <path d="M200 135 H340" stroke="#222"/>
+    <path d="M560 135 H700" stroke="#222"/>
+    <path d="M200 185 H340" stroke="#e67e22"/>
+    <path d="M560 185 H700" stroke="#e67e22"/>
+    <path d="M200 235 H340" stroke="#8e44ad"/>
+    <path d="M560 235 H700" stroke="#8e44ad"/>
+    <path d="M200 335 H340" stroke="#d62728"/>
+    <path d="M560 335 H700" stroke="#2e86de"/>
+    <path d="M320 335 V400 H690 V370 H700" stroke="#d62728" stroke-dasharray="7 4"/>
+  </g>
+  <g font-size="12" fill="#555">
+    <text x="270" y="178" text-anchor="middle">data →</text>
+    <text x="630" y="178" text-anchor="middle">data →</text>
+    <text x="270" y="228" text-anchor="middle">← data</text>
+    <text x="630" y="228" text-anchor="middle">← data</text>
+    <text x="505" y="395" text-anchor="middle">+5V also powers the ESP32 (extra wire from HV to 5Vin)</text>
+  </g>
+</svg>
