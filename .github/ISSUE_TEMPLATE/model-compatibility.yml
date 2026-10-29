@@ -1,0 +1,48 @@
+name: Model compatibility report
+description: Tell us whether this project works on your purifier model (whatever the result).
+title: "[Model] "
+labels: ["compatibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! Reports like this one fill the compatibility table in the README.
+        **Before attaching photos, cover any MAC address, serial number or QR code on labels.**
+  - type: input
+    id: model
+    attributes:
+      label: Purifier model
+      description: Full reference from the label under the purifier, e.g. PU4080F0.
+    validations:
+      required: true
+  - type: input
+    id: board
+    attributes:
+      label: Control board silkscreen
+      description: The reference printed on the control board, e.g. PU4080F0-DL02.
+  - type: input
+    id: module
+    attributes:
+      label: WiFi module / carrier board silkscreen
+      description: E.g. PU6080F0_DL03 V03, BroadLink 3303-SBSL.
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options:
+        - Works (everything)
+        - Partly works
+        - Doesn't work
+        - Not tried yet (only checked the hardware)
+    validations:
+      required: true
+  - type: textarea
+    id: photos
+    attributes:
+      label: Photos
+      description: Control board with the CN6 header visible, and the WiFi module. Drag images here.
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: What works, what doesn't, anything different from the guide.
