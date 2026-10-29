@@ -25,7 +25,7 @@ input[type=text],input[type=password]{width:100%;margin-bottom:8px}.sub{color:va
 <div class="stat"><b id="pm">–</b><span>Particles (PM2.5)</span></div>
 <div class="stat"><b id="spd">–</b><span>Speed</span></div>
 </div><p class="sub" id="info"></p>
-<div class="row"><button class="big" id="bPower" onclick="command({power:!S.power})">Turn on</button></div></div>
+<div class="row"><button class="big" id="bPower" onclick="sendCommand({power:!S.power})">Turn on</button></div></div>
 <div class="card"><h2>Mode</h2><div class="row" id="modes"></div></div>
 <div class="card"><h2>Light</h2><div class="row" id="lights"></div></div>
 <div class="card"><h2>Schedule</h2><div id="sched"></div>
@@ -41,7 +41,7 @@ input[type=text],input[type=password]{width:100%;margin-bottom:8px}.sub{color:va
 const MODES=[[3,'Auto'],[1,'Silent'],[2,'Night'],[4,'Turbo']],LIGHTS=[[0,'On'],[1,'Dim'],[2,'Off']];
 const DAYS=['Mo','Tu','We','Th','Fr','Sa','Su'];let S={},P=[];
 const JSON_HEADERS={'Content-Type':'application/json'};
-function buttons(id,list,field){const d=document.getElementById(id);d.innerHTML='';for(const[v,n]of list){const b=document.createElement('button');b.textContent=n;b.onclick=()=>command({[field]:v});b.dataset.v=v;d.appendChild(b)}}
+function buttons(id,list,field){const d=document.getElementById(id);d.innerHTML='';for(const[v,n]of list){const b=document.createElement('button');b.textContent=n;b.onclick=()=>sendCommand({[field]:v});b.dataset.v=v;d.appendChild(b)}}
 buttons('modes',MODES,'mode');buttons('lights',LIGHTS,'light');
 async function status(){try{S=await(await fetch('/api/status')).json()}catch(e){return}
 st.textContent=S.valid?(S.power?'On':'Off'):'No data';pm.textContent=S.valid?S.pm25:'–';spd.textContent=S.power?S.speed:'–';
@@ -50,7 +50,7 @@ for(const b of modes.children)b.className=(S.power&&S.mode==b.dataset.v)?'on':''
 for(const b of lights.children)b.className=(S.light==b.dataset.v)?'on':'';
 info.textContent='Time '+S.time+(S.lock?' · panel buttons locked':'');
 sinSt.textContent=S.sinric.configured?(S.sinric.connected?'Connected':'Configured, not connected'):'Not configured';}
-async function command(c){await fetch('/api/command',{method:'POST',headers:JSON_HEADERS,body:JSON.stringify(c)});setTimeout(status,800)}
+async function sendCommand(c){await fetch('/api/command',{method:'POST',headers:JSON_HEADERS,body:JSON.stringify(c)});setTimeout(status,800)}
 function draw(){sched.innerHTML='';P.forEach((e,i)=>{const r=document.createElement('div');r.className='ev';
 let h='<span class="days">'+DAYS.map((d,j)=>`<label><input type="checkbox" ${e.days>>j&1?'checked':''} onchange="P[${i}].days^=${1<<j}">${d}</label>`).join('')+'</span>';
 h+=`<input type="time" value="${String(e.hour).padStart(2,'0')}:${String(e.minute).padStart(2,'0')}" onchange="const[a,b]=this.value.split(':');P[${i}].hour=+a;P[${i}].minute=+b">`;
