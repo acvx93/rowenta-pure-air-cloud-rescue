@@ -19,9 +19,10 @@ The result has been running on a Rowenta **PU4080F0** (Intense Pure Air Connect)
 
 | Confidence | Models | Why |
 |---|---|---|
-| **Tested** | **PU4080F0** | The author's purifier. Everything in this repo was built and verified on it. |
+| **Tested** | **PU4080F0** | The author's purifier. The firmware and the installation steps were built and verified on it. |
 | **Same control board** | PU6080F0, PU4085G0, PU6085G0, PU4081U0, PU6081U0, PU6075K0 | Printed on the silkscreen of the control board `PU4080F0-DL02` as variants of the same board. The WiFi carrier board is labelled `PU6080F0_DL03`. Very likely to work, but **not tested**. |
-| **Probably compatible (unverified)** | PU6086; Tefal-branded twins of the Intense Pure Air Connect line | Sold as the same family and supported by the same app. Check that your board has the red **CN6** header described in [docs/hardware.md](docs/hardware.md). |
+| **Probably compatible (unverified)** | PU6086 | Listed by the app alongside the PU6080. Check that your board has the red **CN6** header described in [docs/hardware.md](docs/hardware.md). |
+| **Possibly compatible (unconfirmed)** | Tefal-branded versions | The user manual covers both Rowenta and Tefal, but no Tefal reference has been matched to this board yet. |
 | **Unknown hardware** | Other Pure Air app purifiers (Pure Air Genius, Pure Home, Pure Air City…) | Different products. The [research guide](docs/research-tools.md) explains how to find out whether they use the same protocol. |
 
 **Did you try it on your model?** Please
@@ -39,7 +40,8 @@ photo of the board, whatever the result. That is how this table grows.
 - **Air quality from anywhere** in the Sinric Pro app, plus **phone alerts** when the particle
   level at home goes above a threshold you choose.
 - **Independence**: nothing depends on Rowenta's servers any more. The code is yours.
-- **Updates over WiFi**: no need to open the purifier again to update the firmware.
+- **Updates over WiFi**: no need to open the purifier again to update the firmware (set your OTA
+  password before the first USB flash, see [firmware/README.md](firmware/README.md)).
 - **About 25 € in parts**, and the change is reversible: the original module just unplugs.
 
 ## Safety warnings and disclaimer
@@ -47,8 +49,10 @@ photo of the board, whatever the result. That is how this table grows.
 - The purifier runs on **mains voltage**. **Always unplug it** before opening it or touching
   any wire. Never touch the mains input area of the board.
 - Before connecting a computer to the purifier while it is plugged in, **check the isolation**:
-  with the purifier unplugged, measure between the board's GND and each pin of the mains plug;
-  the multimeter must read open (OL). See [docs/research-tools.md](docs/research-tools.md#1-safety-first-check-the-isolation).
+  with the purifier unplugged, measure between the board's GND and each pin of the mains plug,
+  in diode-test mode **in both polarities** and on the highest resistance range; every reading
+  must be open (OL). If in doubt, use a battery-powered laptop or a USB isolator. See
+  [docs/research-tools.md](docs/research-tools.md#1-safety-first-check-the-isolation).
 - **Never power the ESP32 from USB and from the purifier at the same time.**
 - Sending undocumented commands to the control board can leave it in strange states (the author's
   stopped its motor until a rescue command was found; see [docs/protocol.md](docs/protocol.md)).
@@ -75,7 +79,7 @@ photo of the board, whatever the result. That is how this table grows.
 
 | Part | Notes | Approx. price |
 |---|---|---|
-| ESP32-S3 DevKitC-1 (N16R8 or similar) | Clones are fine; the author's has a CH343 USB chip and a `5Vin` pin | ~12 € |
+| ESP32-S3 DevKitC-1 with **at least 8 MB flash** (N8, N8R2, N8R8, N16R8…) | Clones are fine; the author's is an N16R8 with a CH343 USB chip and a `5Vin` pin. 4 MB boards are too small. | ~12 € |
 | Bidirectional logic level shifter, 4 channels, 3.3 V ↔ 5 V (BSS138) | Only 2 channels are used | 1–8 € (often sold in packs) |
 | Female–female Dupont jumper wires | About 9 | ~5 € (kit) |
 | *Optional:* 5-pin JST XH cable | Holds firmly on the CN6 header (Dupont plugs are loose there) | ~3 € |

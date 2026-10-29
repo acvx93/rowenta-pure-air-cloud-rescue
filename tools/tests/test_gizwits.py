@@ -30,3 +30,9 @@ def test_describe_flags_bad_checksum():
 def test_describe_is_ascii():
     for cmd in range(0x01, 0x19):
         describe(build_frame(cmd, 1, b"\x01"))[0].encode("ascii")
+
+
+def test_samplerate_is_read_from_sigrok_show_output():
+    from capture import parse_samplerate
+    assert parse_samplerate("Samplerate: 2000000\nChannels: 8\n") == 2_000_000
+    assert parse_samplerate("Channels: 8\n") == 1_000_000  # default when sigrok doesn't say

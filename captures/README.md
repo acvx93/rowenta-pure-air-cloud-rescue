@@ -15,7 +15,7 @@ A recording of the module's boot exchange is not published: it contains the boar
 
 ## Recording settings
 
-- Sample rate 1 MHz, channels D0 and D1.
+- Sample rate 1 MHz (`idle.sr`: 2 MHz), channels D0 and D1.
 - **D0 (CH1)** = module TX (module → board), **D1 (CH2)** = module RX (board → module), GND to
   the module's GND.
 - UART 9600 baud, 8N1, not inverted. Note that the board pulls its TX line **low** between frames;

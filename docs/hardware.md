@@ -40,6 +40,9 @@ numbered the other way round: CN6 pins 1–5 = CN1 pins 5, 4, 3, 2, 1.
 
 ![CN6 with Dupont wires: GND, TXD, RXD, WIFI-SW, +5V](../images/cn6-with-dupont.jpg)
 
+In this photo there is also a WIFI-SW wire: it was only used for measuring and is not connected
+at the other end. In the final build WIFI-SW stays unconnected.
+
 ## The original WiFi module
 
 A **BroadLink 3303-SBSL** module (label `Code: SEB 0-0-11`) on a small carrier board labelled
@@ -65,14 +68,19 @@ are 5 V and the ESP32's pins are 3.3 V only.
 
 ![Wiring diagram](../images/wiring.svg)
 
-| CN6 | Level shifter (5 V side) | Level shifter (3.3 V side) | ESP32-S3 | Suggested colour |
-|---|---|---|---|---|
-| GND | GND | GND | GND | black |
-| TXD | HV2 | LV2 | **GPIO18** (RX) | orange |
-| RXD | HV1 | LV1 | **GPIO17** (TX) | purple |
-| WIFI-SW | – | – | – | not connected |
-| +5V | **HV** | | **5Vin** (extra wire soldered on HV) | red |
-| | | **LV** | **3V3** | blue |
+| CN6 | Level shifter (5 V side) | Level shifter (3.3 V side) | ESP32-S3 |
+|---|---|---|---|
+| GND | GND | GND | GND |
+| TXD | HV2 | LV2 | **GPIO18** (RX) |
+| RXD | HV1 | LV1 | **GPIO17** (TX) |
+| WIFI-SW | – | – | not connected |
+| +5V | **HV** | | **5Vin** (extra wire soldered on HV) |
+| | | **LV** | **3V3** |
+
+> [!WARNING]
+> **Follow the pin labels, not the colours.** The colours in the diagram are only there to tell
+> the lines apart, and the wires in the author's photos use different colours again (for example,
+> a red wire goes to the ESP32's 3V3 pin). Mixing up 5 V and 3V3 can destroy the ESP32.
 
 - **HV** is the shifter's 5 V reference and **LV** its 3.3 V reference. Both must be connected.
 - The ESP32 is powered from CN6's +5V. On the author's board this is an extra wire soldered to the

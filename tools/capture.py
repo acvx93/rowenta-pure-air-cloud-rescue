@@ -28,12 +28,20 @@ def record(seconds, path):
                     "--time", f"{seconds}s", "--channels", ",".join(CHANNELS), "-o", path], check=True)
 
 
+def parse_samplerate(show_output):
+    """Sample rate from `sigrok-cli --show` output (recordings may not use SAMPLERATE)."""
+    m = re.search(r"^Samplerate: (\d+)", show_output, re.M)
+    return int(m.group(1)) if m else SAMPLERATE
+
+
 def uart_bytes(path, channel):
+    show = subprocess.run([SIGROK, "-i", path, "--show"], capture_output=True, text=True).stdout
+    rate = parse_samplerate(show)
     out = subprocess.run([SIGROK, "-i", path, "-P", f"uart:rx={channel}:baudrate={BAUD}",
                           "-A", "uart=rx-data", "--protocol-decoder-samplenum"],
                          capture_output=True, text=True).stdout
     for m in re.finditer(r"^(\d+)-\d+ \S+: ([0-9A-F]{2})$", out, re.M):
-        yield int(m.group(1)) / SAMPLERATE, int(m.group(2), 16)
+        yield int(m.group(1)) / rate, int(m.group(2), 16)
 
 
 def show(path):

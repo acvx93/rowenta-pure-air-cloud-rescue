@@ -1,7 +1,8 @@
 # Documentation and photo license
 
-The documentation (`README.md`, everything in `docs/` and `captures/README.md`) and the
-photos and diagrams in `images/` are © 2026 Alejandro Couso and licensed under the
+The documentation (`README.md`, `firmware/README.md` and everything in `docs/`), the
+recordings and decodes in `captures/`, and the photos and diagrams in `images/` are
+© 2026 Alejandro Couso and licensed under the
 **Creative Commons Attribution 4.0 International** license (CC BY 4.0).
 
 You may share and adapt them for any purpose, including commercially, as long as you give

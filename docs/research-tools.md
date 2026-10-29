@@ -36,11 +36,15 @@ The PC will be connected to the purifier's electronics while the purifier is plu
 mains, so first make sure its low-voltage side is isolated from the mains:
 
 1. **Unplug the purifier.**
-2. With the multimeter in continuity/resistance mode, measure between the board's **GND** (for
-   example the GND pin of CN6) and **each pin of the mains plug**.
-3. Both must read **open (OL)**. If either reads a resistance, **stop**: don't connect a PC.
+2. Measure between the board's **GND** (for example the GND pin of CN6) and **each pin of the
+   mains plug**, in diode-test mode **in both polarities** (swap the probes), and again on the
+   highest resistance range. A single measurement in one direction can read open through a
+   reverse-biased rectifier diode.
+3. Every reading must be **open (OL)**. If any reads a voltage drop or a resistance, **stop**:
+   don't connect a PC.
+4. If in doubt, use a battery-powered laptop (charger unplugged) or a USB isolator.
 
-On the PU4080F0 both read OL.
+On the PU4080F0 the readings are open (OL).
 
 ## 2. Install the analyzer driver (Windows)
 
@@ -146,7 +150,8 @@ you control:
    folder). It forwards bytes between USB and the board at 9600 baud.
 2. Unplug the purifier, unplug the module from CN6 and wire the ESP32 exactly as in
    [hardware.md](hardware.md#wiring), but **power the ESP32 from USB only** (leave the 5Vin wire
-   disconnected; HV still goes to CN6 +5V).
+   disconnected; HV still goes to CN6 +5V). The loose end of that wire carries 5 V once the
+   purifier is plugged in: **insulate it** with tape or heat-shrink.
 3. Plug the purifier in. From the `tools` folder (set `BRIDGE_PORT` if the ESP32 isn't on COM4):
 
    ```sh

@@ -102,8 +102,14 @@ The same functions are available as a JSON API:
 | `POST /api/command` | Body `{"power": true}`, `{"mode": 3}` (1 Silent, 2 Night, 3 Auto, 4 Turbo) or `{"light": 2}` (0 on, 1 dim, 2 off) |
 | `GET`/`POST /api/schedule` | List of `{"days", "hour", "minute", "action"}`; `days` bit 0 = Monday, `action` 0 = off, 1–4 = on in that mode |
 | `GET /api/log` | Last 40 events (Sinric commands, alerts…) |
+| `GET`/`POST /api/sinric` | Sinric Pro settings: `appKey`, `deviceId`, `lightDeviceId`, `airDeviceId`, `alertThreshold`, and `appSecret` on POST only (the device restarts after saving) |
 
-Send POST bodies with the header `Content-Type: application/json`.
+Send POST bodies with the header `Content-Type: application/json`. Invalid JSON, a mode outside
+1–4 or a light outside 0–2 get a `400` answer and nothing is sent to the purifier.
+
+> [!IMPORTANT]
+> The page and the API have **no password**: anyone on your network can control the purifier
+> or change its Sinric Pro keys. Keep it on a trusted home network (not a public or shared one).
 
 ## 9. Google Home and Gemini (optional)
 

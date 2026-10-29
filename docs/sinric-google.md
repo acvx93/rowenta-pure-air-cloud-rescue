@@ -40,7 +40,7 @@ No Google Nest speaker or hub is needed: the Google Home app and Gemini on your 
 3. Press **Save and restart**. After a few seconds the card shows **Connected**.
 
 The App Secret is stored only on the ESP32. The page never shows it again (it says *saved*), and
-it is never sent anywhere except to Sinric Pro's own authentication.
+it is never transmitted: it is used only to sign the messages exchanged with Sinric Pro.
 
 ## 3. Link Google Home
 
@@ -51,7 +51,9 @@ it is never sent anywhere except to Sinric Pro's own authentication.
 Example voice commands (Google Assistant / Gemini, in your phone's language):
 
 - "Turn off the purifier" / "Turn on the purifier": tested and working.
-- "Set the purifier speed to 4": sets Turbo (the speed names are odd in Google, see below).
+- "Set the purifier speed to 4": should set Turbo, but this voice command has **not been tested**.
+  Changing the speed from the Sinric Pro app was tested and works; in Google Home the speed names
+  are odd, see below.
 
 ## 4. Air quality away from home, and alerts
 
