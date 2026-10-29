@@ -84,6 +84,11 @@ wires to `GND`, `TX` and `RX` (and `PIN9` if you're curious) and put Dupont plug
 | **CH2** (D1 in sigrok) | Module `RX` (what the board sends) |
 | CH3 (D2), optional | Module `PIN9` |
 
+The analyzer's pin layout is printed on its label: on the author's unit one row has CH1, CH3, CH5,
+CH7 and CLK, the other CH2, CH4, CH6, CH8 and GND. Check yours.
+
+![Logic analyzer connected to the original module's test pads, module still plugged into the purifier](../images/logic-analyzer.jpg)
+
 You can also listen on CN6 (5 V side) with the module plugged in; most of these analyzers accept
 5 V inputs, but check yours. On CN6, `TXD` is what the board sends and `RXD` what the module sends.
 
